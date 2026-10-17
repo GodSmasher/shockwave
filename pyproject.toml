@@ -1,0 +1,19 @@
+[project]
+name = "shockwave"
+version = "0.1.0"
+description = "Supply-chain risk analyst agent on FalkorDB — a company brain that thinks and remembers"
+requires-python = ">=3.11"
+dependencies = [
+    "falkordb>=1.0.9",
+    "anthropic>=0.40.0",
+    "python-dotenv>=1.0.1",
+    "pydantic>=2.9.0",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "edgartools>=3.0.0",
+    "httpx>=0.27.0",
+    "rich>=13.9.0",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.7.0", "pytest>=8.0.0"]

@@ -1,0 +1,11 @@
+id,event,year,event_type,affected_entities,recovery_days,impact_summary
+suez_2021,Ever Given blocks Suez Canal,2021,shipping_disruption,"Suez Canal,Maersk,MSC",6,"6 days blockage; $9.6B/day in global trade halted; downstream weeks of port congestion"
+zhengzhou_lockdown_2022,Foxconn Zhengzhou COVID lockdown,2022,facility_shutdown,"Foxconn Zhengzhou,Apple",45,"iPhone 14 Pro production cut 30%; Apple missed Q4 revenue by ~$1B/week during shortage"
+tsmc_drought_2021,Taiwan drought affects TSMC water supply,2021,facility_disruption,"TSMC,Taiwan Strait geopolitical choke",120,"Severe drought forced water trucking to fabs; no production outage but $300M+ in costs"
+fukushima_2011,Fukushima earthquake and tsunami,2011,natural_disaster,"Panasonic - 2170 cells Gigafactory Nevada,Toyota - Panasonic / Prime Planet Energy - HEV/EV cells",180,"Multiple fabs offline for months; auto and electronics industries hit for 6+ months"
+cymer_outage_2018,Cymer EUV light source issues,2018,supplier_quality,"Cymer,ASML - EUV scanners,TSMC - EUV scanners",90,"EUV scanner shipments slipped; TSMC 7nm ramp delayed one quarter"
+spirit_quality_2024,Spirit AeroSystems 737 quality crisis,2024,supplier_quality,"Spirit AeroSystems - 737 fuselage Wichita,Boeing",365,"737 MAX production cut to 10/month; Boeing re-acquired Spirit; delivery delays into 2025+"
+cobalt_squeeze_2017,DRC cobalt price spike,2017,commodity_shock,"DRC cobalt mines (Glencore/CMOC),Battery makers (CATL/LG/Panasonic)",270,"Cobalt +230% in 9 months; battery makers accelerated low-cobalt chemistries (NMC-811 LFP)"
+pandemic_chip_shortage_2020,COVID-19 global chip shortage,2020,pandemic,"TSMC - A/M-series SoCs,TSMC - H100/B200 wafers (CoWoS),Qualcomm - Snapdragon fab",730,"2-year shortage; auto OEMs lost millions of units; Ford and GM cut production"
+gtf_recall_2023,Pratt Whitney GTF powder metal recall,2023,supplier_quality,"Pratt & Whitney - GTF A320neo,Airbus",400,"P&W GTF engines on A320neo recalled for inspection; airlines grounded 350+ aircraft globally"
+helium_shortage_4_2022,Global helium shortage 4.0,2022,commodity_shock,"Helium (US/Qatar/Russia) - MRI cryogenics,GE Healthcare,Siemens Healthineers,Philips",220,"MRI makers scrambled; Russia-sourced helium cut by sanctions; MRI delivery delays 3-6 months"
