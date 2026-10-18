@@ -32,7 +32,7 @@ export default function Watchlist({
       {WATCHLIST.map((c) => (
         <button
           key={c.ticker}
-          onClick={() => onSelect(`Welche versteckten Risiken hat ${c.name}?`)}
+          onClick={() => onSelect(`What hidden risks does ${c.name} carry?`)}
           className={`text-left px-4 py-2 border-b border-hairline/50 hover:bg-panelHi transition ${
             active === c.name ? "bg-panelHi" : ""
           }`}

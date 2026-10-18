@@ -8,10 +8,10 @@ type Props = {
 };
 
 const EXAMPLES = [
-  "Welche versteckten Risiken hat Apple?",
-  "Was passiert wenn TSMC 6 Monate ausfällt?",
-  "Finde den gefährlichsten SPOF für Nvidia.",
-  "Welche Firmen leiden am meisten unter einem Suez-Blackout?",
+  "What hidden risks does Apple carry?",
+  "What breaks if TSMC goes offline for six months?",
+  "Find the most dangerous SPOF for Nvidia.",
+  "Which companies suffer most from a Suez blackout?",
 ];
 
 export default function TerminalBar({ value, onChange, onSubmit, loading }: Props) {

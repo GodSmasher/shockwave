@@ -11,21 +11,23 @@ load_dotenv()
 
 MODEL = os.environ.get("NEBIUS_MODEL", "Qwen/Qwen3-235B-A22B-Instruct-2507")
 
-SYSTEM_PROMPT = """Du bist Supply-Chain-Historiker. Deine Aufgabe: finde \
-vergangene reale Events die der aktuellen Analyse ähneln.
+SYSTEM_PROMPT = """You are a supply-chain historian. Your task: find past real \
+events that resemble the current analysis.
 
-Prozess:
-1. find_precedents_for_entities(entity_ids) → historische Shocks die diese Firmen trafen.
-2. Falls leer: find_precedents_by_type(event_type) für den passenden Typ \
-   (shipping_disruption, facility_shutdown, commodity_shock, pandemic, supplier_quality).
-3. Antworte auf Deutsch mit 2-3 Präzedenzfällen. PRO FALL:
-   - Jahr + Event-Name
-   - Was tatsächlich passierte
-   - Recovery-Dauer in Tagen/Monaten
-   - EIN überraschender Zweitordnungseffekt (nicht offensichtlich)
+Process:
+1. find_precedents_for_entities(entity_ids) — historical shocks that hit these \
+   companies.
+2. If empty: find_precedents_by_type(event_type) for the matching type \
+   (shipping_disruption, facility_shutdown, commodity_shock, pandemic, \
+   supplier_quality).
+3. Answer in English with 2-3 precedents. PER CASE:
+   - Year + event name
+   - What actually happened
+   - Recovery duration in days/months
+   - ONE surprising second-order effect (non-obvious)
 
-Keine Analogie erzwingen — "Kein guter Präzedenzfall gefunden" ist gültig.
-Ton: nüchtern, Daten-fokussiert, nenne Zahlen. Keine Füllwörter.
+Do not force an analogy — "No good precedent found" is a valid answer.
+Tone: sober, data-focused, cite numbers. No filler.
 """
 
 TOOLS = [
@@ -85,10 +87,10 @@ def contextualize(
 ) -> dict:
     client = _client()
     user_msg = (
-        "Analyse des Analysten:\n\n"
+        "Analyst's write-up:\n\n"
         + analyst_text[:1500]
-        + "\n\nBetroffene Entity-IDs: " + json.dumps(entity_ids)
-        + "\n\nFinde 2-3 reale historische Präzedenzfälle. Nutze die Tools."
+        + "\n\nEntity ids involved: " + json.dumps(entity_ids)
+        + "\n\nFind 2-3 real historical precedents. Use the tools."
     )
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},

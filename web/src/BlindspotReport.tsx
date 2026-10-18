@@ -56,7 +56,7 @@ export default function BlindspotReport({
           </div>
           <div className="space-y-2.5">
             {tier1.length === 0 && (
-              <div className="text-xs text-muted">Keine Tier-1-Risiken im Graph.</div>
+              <div className="text-xs text-muted">No tier-1 risks in the graph.</div>
             )}
             {tier1.map((s) => (
               <div key={s.id} className="space-y-1">
@@ -85,7 +85,7 @@ export default function BlindspotReport({
           <div className="space-y-3">
             {hidden.length === 0 && (
               <div className="text-xs text-muted italic">
-                Keine versteckten SPOFs gefunden.
+                No hidden SPOFs found.
               </div>
             )}
             {hidden.map((s) => (
@@ -110,8 +110,8 @@ export default function BlindspotReport({
       </div>
       {hidden.length > 0 && (
         <div className="bg-accent/10 px-4 py-2 text-[11px] text-accent border-t border-accent/20">
-          ↑ Diese {hidden.length} Risiken erscheinen in keinem Standard-Risk-Register —
-          sie sind {hidden[0].min_hops}+ Lieferketten-Glieder entfernt.
+          ↑ These {hidden.length} risks appear in no standard Tier-1 register —
+          they sit {hidden[0].min_hops}+ supply-chain hops away.
         </div>
       )}
     </div>

@@ -55,7 +55,7 @@ export default function DossierLanding({ onSelect }: { onSelect: (query: string)
                 {companies.map((c) => (
                   <li key={c.ticker}>
                     <button
-                      onClick={() => onSelect(`Welche versteckten Risiken hat ${c.name}?`)}
+                      onClick={() => onSelect(`What hidden risks does ${c.name} carry?`)}
                       className="group text-left w-full"
                     >
                       <div className="flex items-baseline justify-between gap-2">

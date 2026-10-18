@@ -62,7 +62,7 @@ export default function TopNav({
                   key={c.ticker}
                   onClick={() => {
                     setOpen(false);
-                    onSelect(`Welche versteckten Risiken hat ${c.name}?`);
+                    onSelect(`What hidden risks does ${c.name} carry?`);
                   }}
                   className="text-left py-2 border-b border-hairline/60 flex items-baseline justify-between group hover:bg-panelHi/60 px-1 transition"
                 >

@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 
 const EXAMPLES = [
-  "Welche versteckten Risiken hat Apple?",
-  "Welche versteckten Risiken hat Novo Nordisk?",
-  "Was passiert wenn TSMC 6 Monate ausfällt?",
-  "Finde den gefährlichsten SPOF für Lockheed Martin.",
-  "Welche Firmen leiden am meisten unter einem Suez-Blackout?",
+  "What hidden risks does Apple carry?",
+  "What hidden risks does Novo Nordisk carry?",
+  "What breaks if TSMC goes offline for six months?",
+  "Find the most dangerous SPOF for Lockheed Martin.",
+  "Which companies suffer most from a Suez blackout?",
 ];
 
 export default function QueryModal({

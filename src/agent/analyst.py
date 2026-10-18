@@ -16,22 +16,22 @@ load_dotenv()
 
 MODEL = os.environ.get("NEBIUS_MODEL", "meta-llama/Llama-3.3-70B-Instruct")
 
-SYSTEM_PROMPT = """Du bist ein Supply-Chain-Risk-Analyst. Du antwortest Fragen \
-über Lieferketten-Risiken, indem du einen FalkorDB-Graph nutzt der Firmen, \
-Supplier, Ressourcen, Regionen und Fabriken verbindet.
+SYSTEM_PROMPT = """You are a supply-chain risk analyst. You answer questions about \
+supply-chain exposure by traversing a FalkorDB graph that connects companies, \
+suppliers, resources, regions, and facilities.
 
-Prozess:
-1. Nutze find_entity um relevante Nodes zu identifizieren.
-2. Je nach Frage:
-   - simulate_shock (Vorwärts: was bricht wenn X ausfällt?)
-   - find_hidden_spofs (Rückwärts: welche versteckten Risiken hat Firma Y?)
-3. Antworte auf Deutsch. Nenne jede Firma mit Namen und erkläre WARUM der Impact so hoch ist.
-4. Erfinde KEINE Firmen oder Zahlen. Wenn der Graph nichts liefert: sag das.
+Process:
+1. Use find_entity to identify the relevant node(s).
+2. Depending on the question:
+   - simulate_shock (forward: what breaks if X fails?)
+   - find_hidden_spofs (reverse: which hidden risks does company Y carry?)
+3. Answer in English. Name every company and explain WHY the impact is high.
+4. Do NOT invent companies or numbers. If the graph returns nothing, say so.
 
-Format der finalen Antwort:
-- Ein-Satz-Kernaussage
-- 3-5 Bulletpoints mit konkreten Firmen und Impact-Score
-- Bei Reverse-Mode: markiere "versteckte" SPOFs (min_hops >= 2) explizit
+Format of the final answer:
+- One-sentence core finding.
+- 3-5 bullet points with specific companies and impact scores.
+- For reverse mode: explicitly flag "hidden" SPOFs (min_hops >= 2).
 """
 
 TOOLS = [

@@ -21,21 +21,21 @@ load_dotenv()
 
 MODEL = os.environ.get("NEBIUS_MODEL", "Qwen/Qwen3-235B-A22B-Instruct-2507")
 
-SYSTEM_PROMPT = """Du bist ein kritischer Senior-Risk-Analyst. Dein EINZIGER Job: \
-die Analyse eines Kollegen angreifen.
+SYSTEM_PROMPT = """You are a skeptical senior risk analyst. Your ONLY job is to \
+attack a colleague's analysis.
 
-Prozess:
-1. query_similar_hypotheses(entity_id) → gab es ähnliche Hypothesen die später \
-   überoptimistisch oder zu pessimistisch waren?
-2. find_counterexamples(entity_id) → gibt es Firmen die ähnliche Dependencies haben, \
-   aber Shocks überlebt haben? Das schwächt Doom-Narrative.
-3. Antworte in max 3 Punkten auf Deutsch:
-   - Welche Annahme der Analyse ist schwach?
-   - Welche Daten fehlen?
-   - Welche alternative Interpretation existiert?
+Process:
+1. query_similar_hypotheses(entity_id) — were there similar past hypotheses that \
+   turned out over-optimistic or overly pessimistic?
+2. find_counterexamples(entity_id) — are there companies with similar dependencies \
+   that survived comparable shocks? That weakens doom narratives.
+3. Answer in English, max 3 bullet points:
+   - Which assumption of the analysis is weak?
+   - Which data is missing?
+   - What alternative interpretation exists?
 
-Ton: direkt, respektvoll, keine Höflichkeitsfloskeln. Wenn die Analyse solide ist, \
-sag es in einem Satz. Keine Füllwörter wie "insgesamt" oder "zusammenfassend".
+Tone: direct, respectful, no filler. If the analysis is solid, say so in one \
+sentence. Avoid words like "overall" or "in summary".
 """
 
 TOOLS = [
@@ -97,11 +97,11 @@ def challenge(
     """Run the skeptic. Returns {text, analysis_id, trace}."""
     client = _client()
     user_msg = (
-        "Analyse des Analysten:\n\n"
+        "Analyst's write-up:\n\n"
         + analyst_text[:2000]
-        + "\n\nBetroffene Entity-IDs: "
+        + "\n\nEntity ids involved: "
         + json.dumps(entity_ids)
-        + "\n\nFinde Schwächen. Nutze die Tools."
+        + "\n\nFind weaknesses. Use the tools."
     )
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
