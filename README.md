@@ -2,7 +2,7 @@
 
 > Supply-chain blindspots. Found.
 
-![Shockwave landing](docs/screenshots/01-landing.jpg)
+![Shockwave teaser](docs/teaser.gif)
 
 A supply-chain risk analyst that reads the dependency graph the way a human would — recursively, three to four hops upstream — and surfaces the single points of failure a standard Tier-1 risk register leaves out.
 
@@ -37,9 +37,7 @@ Three agents work in parallel on every query:
 
 Everything persists to memory. The next scan can be contradicted by what the last one concluded.
 
-![Scan progress streaming](docs/screenshots/02-scanning.jpg)
-
-Each scan is a live event stream — the user sees the agent's tool calls as they happen, with concrete findings per step.
+Each scan is a **live event stream** — the user sees the agent's tool calls as they happen, with concrete findings per step ("found Novo Nordisk (Company)", "8 SPOFs, 6 hidden ≥2 hops").
 
 ---
 
@@ -47,25 +45,18 @@ Each scan is a live event stream — the user sees the agent's tool calls as the
 
 Instead of a chat panel, Shockwave outputs an **editorial dossier** per company — a long-form report with headline, deck, drop-cap lede, hero fact, numbered sections, and a figure.
 
-![Novo Nordisk dossier top](docs/screenshots/03-dossier-top.jpg)
+The core format:
 
-### Section I — The Hidden
+- **Headline** — company name, massive serif
+- **Deck** — italic subhead "N suppliers your Tier-1 risk register will never surface"
+- **Lede** — drop-cap paragraph summarizing what the chain says
+- **Hero fact** — big-serif number of hidden SPOFs
+- **Section I — The hidden N** — ranked list of 2+ hop SPOFs with the exact chain path (`Apple → TSMC → ASML → Carl Zeiss SMT`)
+- **Figure 1 — The dependency chain** — focused force-directed graph showing only the relevant subgraph with red edges following the propagation path
+- **Section II — What history teaches** — Historian's precedent
+- **Section III — Counterpoint** — Skeptic's challenge, with sourced tool calls
 
-Direct Tier-1 suppliers are listed as a muted side-pill. The main editorial space goes to the **hidden** SPOFs: 2+ hops upstream, with their exact path through the chain.
-
-![The Hidden section](docs/screenshots/04-hidden-section.jpg)
-
-### Figure 1 — The Dependency Chain
-
-A focused force-directed graph of just the relevant subgraph — the subject, its highlighted dependencies, and the paths between them. Red edges follow the propagation path.
-
-![Figure 1](docs/screenshots/05-figure-graph.jpg)
-
-### Section III — Counterpoint
-
-The Skeptic's challenge, with sourced tool calls so a reader can audit it.
-
-![Skeptic section](docs/screenshots/06-skeptic-section.jpg)
+A 90-second pitch video walking through all of it: [`docs/pitch_video_final.mp4`](docs/pitch_video_final.mp4).
 
 ---
 
@@ -74,7 +65,7 @@ The Skeptic's challenge, with sourced tool calls so a reader can audit it.
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  Frontend (Vite + React + Tailwind + react-force-graph-2d)  │
-│  Editorial dossier · streaming scan · hop-ring visualization │
+│  Editorial dossier · streaming scan · bubble graph figure    │
 └─────────────────────────────┬───────────────────────────────┘
                               │ SSE + JSON
 ┌─────────────────────────────▼───────────────────────────────┐
@@ -128,7 +119,7 @@ Hidden-score boosts entries that are 2+ hops away (depth factor 1.5) and dampens
 - **Graph DB:** FalkorDB Cloud (free tier, eu-west-1) — native vector + full-text indexes, Cypher
 - **LLM:** Qwen3-235B-A22B-Instruct-2507 via [Nebius AI Studio](https://studio.nebius.ai/) (OpenAI-compatible)
 - **Backend:** Python 3.12 · FastAPI · `falkordb-py` · `openai` (for Nebius) · SSE streaming
-- **Frontend:** Vite · React · TypeScript · Tailwind v3 · `react-force-graph-2d`
+- **Frontend:** Vite · React · TypeScript · Tailwind v3 · `react-force-graph-2d` · Instrument Serif / Inter / JetBrains Mono
 - **Testing:** pytest (16/16 passing — graph queries + normalization + evaluation)
 
 ---
@@ -200,9 +191,9 @@ shockwave/
 │   └── extraction/      (reserved for EDGAR pipeline — future)
 ├── web/                 Vite + React dossier UI
 ├── data/                seed_dependencies.csv · ground_truth_spofs.csv · historical_events.csv
-├── scripts/             evaluate.py · test_cli.py
+├── scripts/             evaluate.py · test_cli.py · generate_voiceover.py
 ├── tests/               pytest suite
-└── docs/screenshots/    hero visuals
+└── docs/                teaser.gif · pitch_video_final.mp4
 ```
 
 ---
