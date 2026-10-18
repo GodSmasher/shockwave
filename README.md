@@ -4,6 +4,9 @@
 
 ![Shockwave teaser](docs/teaser.gif)
 
+**▶ Watch the 90-second pitch: https://youtu.be/v6YKiRbhWf4**  
+**🔗 Live: https://shockwave-blindspots.vercel.app**
+
 A supply-chain risk analyst that reads the dependency graph the way a human would — recursively, three to four hops upstream — and surfaces the single points of failure a standard Tier-1 risk register leaves out.
 
 Built for the [FalkorDB × wemakedevs hackathon](https://www.wemakedevs.org/hackathons/falkordb) (Oct 15–18, 2026).
@@ -56,7 +59,7 @@ The core format:
 - **Section II — What history teaches** — Historian's precedent
 - **Section III — Counterpoint** — Skeptic's challenge, with sourced tool calls
 
-A 90-second pitch video walking through all of it: [`docs/pitch_video_final.mp4`](docs/pitch_video_final.mp4).
+A 90-second pitch video walking through all of it: [YouTube](https://youtu.be/v6YKiRbhWf4) · [local MP4](docs/pitch_video_final.mp4).
 
 ---
 
