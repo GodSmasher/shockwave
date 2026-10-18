@@ -160,9 +160,8 @@ export default function App() {
   }
 
   const centerName = result?.center_entity?.name;
-  const elapsedMs = loading ? Date.now() - startedAt + tick - tick : loading ? 0 : 0;
   // explicit dependency on tick to force re-render each tick
-  const liveElapsed = loading ? (tick, Date.now() - startedAt) : 0;
+  const liveElapsed = loading && tick >= 0 ? Date.now() - startedAt : 0;
 
   return (
     <div className="min-h-full flex flex-col">

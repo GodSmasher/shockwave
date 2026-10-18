@@ -1,0 +1,25 @@
+# One-click deploy to Render.com — handles backend streaming without timeout.
+# Fork this repo, then on Render: New → Blueprint → point at your fork.
+services:
+  - type: web
+    name: shockwave-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: FALKORDB_HOST
+        sync: false
+      - key: FALKORDB_PORT
+        sync: false
+      - key: FALKORDB_USERNAME
+        value: falkordb
+      - key: FALKORDB_PASSWORD
+        sync: false
+      - key: FALKORDB_GRAPH
+        value: shockwave
+      - key: NEBIUS_API_KEY
+        sync: false
+      - key: NEBIUS_BASE_URL
+        value: https://api.studio.nebius.com/v1
+      - key: NEBIUS_MODEL
+        value: Qwen/Qwen3-235B-A22B-Instruct-2507

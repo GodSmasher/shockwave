@@ -19,7 +19,7 @@ const typeColor: Record<string, string> = {
 };
 
 export default function GraphView({ data, highlighted, paths, nameToId }: Props) {
-  const fgRef = useRef<any>();
+  const fgRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [dims, setDims] = useState({ w: 760, h: 480 });
 
